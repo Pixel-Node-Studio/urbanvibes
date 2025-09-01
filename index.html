@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Vibes | Street Food & Cocktails in Athens</title>
+    <meta name="description" content="Experience the best street food and cocktails in Koukaki, Athens. Urban Vibes brings together bold flavors, vibrant nightlife, and authentic urban dining.">
+    <meta name="keywords" content="street food, burgers, cocktails, athens, koukaki, nightlife, urban dining">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'urban-yellow': '#FFD700',
+                        'urban-orange': '#FF8C00',
+                        'urban-dark': '#1a1a1a',
+                        'urban-gray': '#2d2d2d'
+                    },
+                    fontFamily: {
+                        'display': ['Oswald', 'sans-serif'],
+                        'body': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .menu-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #FFD700;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .language-toggle {
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle:hover {
+            transform: rotate(10deg);
+        }
+        
+        .btn-primary {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-body bg-urban-dark text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl md:text-3xl font-display font-bold text-urban-yellow">URBAN<span class="text-urban-orange">VIBES</span></h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-lg font-medium hover:text-urban-yellow">Home</a>
+                <a href="#about" class="nav-link text-lg font-medium hover:text-urban-yellow">About</a>
+                <a href="#menu" class="nav-link text-lg font-medium hover:text-urban-yellow">Menu</a>
+                <a href="#events" class="nav-link text-lg font-medium hover:text-urban-yellow">Events</a>
+                <a href="#contact" class="nav-link text-lg font-medium hover:text-urban-yellow">Contact</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button id="languageToggle" class="language-toggle bg-urban-gray p-2 rounded-full">
+                    <i class="fas fa-language text-xl"></i>
+                </button>
+                <button class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay muted loop class="hero-video">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-cooking-burger-in-a-restaurant-353-large.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="container mx-auto px-4 text-center z-10 fade-in">
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-4">
+                URBAN FLAVORS.<br><span class="text-urban-yellow">CITY VIBES.</span>
+            </h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Experience the best street food and cocktails in the heart of Athens</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#menu" class="btn-primary bg-urban-orange hover:bg-urban-yellow text-black font-bold py-3 px-8 rounded-full text-lg">VIEW MENU</a>
+                <a href="#contact" class="btn-primary bg-transparent border-2 border-urban-yellow text-urban-yellow font-bold py-3 px-8 rounded-full text-lg">BOOK A TABLE</a>
+                <a href="#" class="btn-primary bg-urban-yellow hover:bg-urban-orange text-black font-bold py-3 px-8 rounded-full text-lg">ORDER ONLINE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-urban-gray">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">ABOUT US</h2>
+                <div class="w-24 h-1 bg-urban-orange mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 fade-in">
+                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Urban Vibes Restaurant" class="rounded-xl shadow-2xl w-full">
+                </div>
+                
+                <div class="lg:w-1/2 fade-in">
+                    <h3 class="text-2xl md:text-3xl font-display font-bold mb-6">OUR STORY</h3>
+                    <p class="mb-6 text-lg leading-relaxed">Founded in the heart of Koukaki, Athens, Urban Vibes was born from a passion for bringing authentic street food culture to the city's vibrant nightlife scene.</p>
+                    <p class="mb-6 text-lg leading-relaxed">Our journey began when chef Alex and mixologist Maria decided to combine their love for bold flavors with the energy of urban living. What started as a small food truck has evolved into one of Athens' most beloved culinary destinations.</p>
+                    <p class="mb-8 text-lg leading-relaxed">We source our ingredients locally, craft our cocktails with precision, and create an atmosphere where friends gather, music plays, and unforgettable moments happen every night.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="bg-black p-4 rounded-lg text-center">
+                            <div class="text-3xl font-display text-urban-yellow mb-2">5+</div>
+                            <div class="text-gray-300">YEARS EXPERIENCE</div>
+                        </div>
+                        <div class="bg-black p-4 rounded-lg text-center">
+                            <div class="text-3xl font-display text-urban-orange mb-2">50+</div>
+                            <div class="text-gray-300">SIGNATURE DISHES</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-urban-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">OUR MENU</h2>
+                <div class="w-24 h-1 bg-urban-orange mx-auto"></div>
+                <p class="mt-6 max-w-2xl mx-auto text-gray-300">Bold flavors, creative combinations, and premium ingredients crafted with passion</p>
+            </div>
+            
+            <div class="flex justify-center mb-12 fade-in">
+                <div class="inline-flex p-1 bg-urban-gray rounded-full">
+                    <button class="px-6 py-2 rounded-full bg-urban-orange text-black font-medium">BURGERS</button>
+                    <button class="px-6 py-2 rounded-full hover:bg-urban-gray">SIDES</button>
+                    <button class="px-6 py-2 rounded-full hover:bg-urban-gray">COCKTAILS</button>
+                    <button class="px-6 py-2 rounded-full hover:bg-urban-gray">BEERS</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Burger Items -->
+                <div class="menu-item bg-urban-gray rounded-xl overflow-hidden fade-in">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1098&q=80" alt="Classic Burger" class="w-full h-56 object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-display font-bold">URBAN CLASSIC</h3>
+                            <span class="text-urban-yellow font-bold">€12</span>
+                        </div>
+                        <p class="text-gray-300 mt-2">Beef patty, cheddar, lettuce, tomato, onion, special sauce</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-urban-gray rounded-xl overflow-hidden fade-in">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Truffle Burger" class="w-full h-56 object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-display font-bold">TRUFFLE MADNESS</h3>
+                            <span class="text-urban-yellow font-bold">€16</span>
+                        </div>
+                        <p class="text-gray-300 mt-2">Wagyu beef, truffle aioli, arugula, parmesan crisp</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-urban-gray rounded-xl overflow-hidden fade-in">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1603064752734-4c48eff53d05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Vegan Burger" class="w-full h-56 object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-display font-bold">GREEN URBAN</h3>
+                            <span class="text-urban-yellow font-bold">€14</span>
+                        </div>
+                        <p class="text-gray-300 mt-2">Black bean patty, avocado, sprouts, vegan cheese, chipotle mayo</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16 fade-in">
+                <a href="#" class="inline-flex items-center btn-primary bg-urban-orange hover:bg-urban-yellow text-black font-bold py-3 px-8 rounded-full">
+                    DOWNLOAD FULL MENU
+                    <i class="fas fa-download ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-20 bg-urban-gray">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">EVENTS & VIBES</h2>
+                <div class="w-24 h-1 bg-urban-orange mx-auto"></div>
+                <p class="mt-6 max-w-2xl mx-auto text-gray-300">Join us for unforgettable nights filled with music, art, and delicious food</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="event-card bg-black rounded-xl overflow-hidden shadow-xl fade-in">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="DJ Night" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-urban-orange font-bold">FRIDAY NIGHTS</span>
+                            <span class="bg-urban-orange text-black px-3 py-1 rounded-full text-sm">LIVE DJ</span>
+                        </div>
+                        <h3 class="text-xl font-display font-bold mb-2">ELECTRIC VIBES</h3>
+                        <p class="text-gray-300 mb-4">Experience the hottest beats with resident DJs spinning tracks until late.</p>
+                        <div class="flex items-center text-gray-400">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>Every Friday • 22:00 - 02:00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-card bg-black rounded-xl overflow-hidden shadow-xl fade-in">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Art Exhibition" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-urban-orange font-bold">MONTHLY</span>
+                            <span class="bg-urban-yellow text-black px-3 py-1 rounded-full text-sm">ART</span>
+                        </div>
+                        <h3 class="text-xl font-display font-bold mb-2">LOCAL ARTISTS SHOWCASE</h3>
+                        <p class="text-gray-300 mb-4">Support local talent with our monthly art exhibitions featuring emerging artists.</p>
+                        <div class="flex items-center text-gray-400">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>Last Saturday of each month • 19:00 - 23:00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-card bg-black rounded-xl overflow-hidden shadow-xl fade-in">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Burger Competition" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-urban-orange font-bold">QUARTERLY</span>
+                            <span class="bg-urban-orange text-black px-3 py-1 rounded-full text-sm">COMPETITION</span>
+                        </div>
+                        <h3 class="text-xl font-display font-bold mb-2">URBAN BURGER CHALLENGE</h3>
+                        <p class="text-gray-300 mb-4">Can you finish our legendary 5-pound burger in under 30 minutes?</p>
+                        <div class="flex items-center text-gray-400">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>Next: July 15th • Registration required</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center fade-in">
+                <h3 class="text-2xl font-display font-bold mb-6">FOLLOW OUR INSTAGRAM</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="aspect-square overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1550547660-9be8e3c8cf4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Instagram post" class="w-full h-full object-cover">
+                    </div>
+                    <div class="aspect-square overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1081&q=80" alt="Instagram post" class="w-full h-full object-cover">
+                    </div>
+                    <div class="aspect-square overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Instagram post" class="w-full h-full object-cover">
+                    </div>
+                    <div class="aspect-square overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80" alt="Instagram post" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <a href="#" class="inline-flex items-center mt-8 btn-primary bg-urban-orange hover:bg-urban-yellow text-black font-bold py-3 px-8 rounded-full">
+                    FOLLOW @URBANVIBESATHENS
+                    <i class="fab fa-instagram ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-urban-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">CONTACT & LOCATION</h2>
+                <div class="w-24 h-1 bg-urban-orange mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2 fade-in">
+                    <div class="bg-urban-gray rounded-xl overflow-hidden shadow-2xl h-96">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.543953101084!2d23.72784131532469!3d37.97155797971647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd4d1065d191%3A0x5e8d7c3d5e5e5e5e!2sKoukaki%2C%20Athens%2C%20Greece!5e0!3m2!1sen!2sus!4v1689876543210!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 fade-in">
+                    <div class="bg-urban-gray rounded-xl p-8 h-full">
+                        <h3 class="text-2xl font-display font-bold mb-6">VISIT US</h3>
+                        
+                        <div class="space-y-6 mb-10">
+                            <div class="flex items-start">
+                                <div class="text-urban-orange text-2xl mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">ADDRESS</h4>
+                                    <p class="text-gray-300">15 Pandrossou Street<br>Koukaki, Athens 117 42</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-urban-orange text-2xl mr-4">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">OPENING HOURS</h4>
+                                    <p class="text-gray-300">Monday - Thursday: 17:00 - 00:00<br>Friday - Saturday: 17:00 - 02:00<br>Sunday: 18:00 - 23:00</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-urban-orange text-2xl mr-4">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">CONTACT</h4>
+                                    <p class="text-gray-300">Phone: +30 210 123 4567<br>Email: info@urbanvibes.gr</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#" class="flex items-center btn-primary bg-urban-orange hover:bg-urban-yellow text-black font-bold py-3 px-6 rounded-full">
+                                <i class="fab fa-instagram mr-2"></i> INSTAGRAM
+                            </a>
+                            <a href="#" class="flex items-center btn-primary bg-black border border-urban-yellow text-urban-yellow font-bold py-3 px-6 rounded-full">
+                                <i class="fab fa-wolt mr-2"></i> ORDER ON WOLT
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <h2 class="text-3xl font-display font-bold text-urban-yellow">URBAN<span class="text-urban-orange">VIBES</span></h2>
+                    <p class="mt-2 text-gray-400">Street food meets city nightlife</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="social-icon text-2xl text-gray-400 hover:text-urban-yellow"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon text-2xl text-gray-400 hover:text-urban-yellow"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon text-2xl text-gray-400 hover:text-urban-yellow"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon text-2xl text-gray-400 hover:text-urban-yellow"><i class="fab fa-spotify"></i></a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 Urban Vibes. All rights reserved. Designed with <i class="fas fa-heart text-urban-orange"></i> in Athens</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('appear');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Language toggle functionality
+            const languageToggle = document.getElementById('languageToggle');
+            let currentLang = 'EN';
+            
+            languageToggle.addEventListener('click', function() {
+                if (currentLang === 'EN') {
+                    currentLang = 'GR';
+                    this.innerHTML = '<span class="font-bold">GR</span>';
+                } else {
+                    currentLang = 'EN';
+                    this.innerHTML = '<i class="fas fa-language text-xl"></i>';
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
